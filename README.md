@@ -158,6 +158,82 @@ Import into Google Sheets, Excel, or translation management systems.
 
 Generate reports for documentation or GitHub issues.
 
+## Using with AI Assistants
+
+You can use **xcstrings-tool** with AI assistants like Claude Code to automate localization workflows. Here's a generic prompt template:
+
+```markdown
+# Task: Achieve 100% Localization for [TARGET_LANGUAGE]
+
+## Context
+You have access to:
+- `path/to/Localizable.xcstrings` - The Xcode String Catalog
+- `xcstrings-tool` - CLI tool for auditing localization
+- Full filesystem access
+
+## Goal
+Bring the app from X% to 100% [TARGET_LANGUAGE] localization completion.
+
+## Available Commands
+```bash
+# Audit current localization state
+xcstrings-tool audit path/to/Localizable.xcstrings --target [LANG_CODE]
+
+# Export missing translations to CSV
+xcstrings-tool export path/to/Localizable.xcstrings --target [LANG_CODE] -o translations.csv
+```
+
+## Workflow
+
+1. **Audit**: Run audit to identify missing translations
+2. **Analyze**: Read Localizable.xcstrings to understand structure
+3. **Translate**: Work in batches of 50-100 strings
+   - Use web search for technical/domain-specific terms if needed
+   - Maintain consistency with existing translations
+4. **Edit**: Update Localizable.xcstrings directly with new translations
+5. **Verify**: Re-run audit after each batch
+6. **Repeat**: Continue until 100% complete
+
+## Translation Guidelines
+- Target locale: [LANGUAGE] ([LANG_CODE])
+- Context: [YOUR_APP_DESCRIPTION]
+- Preserve: All placeholder variables (`%@`, `%lld`, `%{variable}`, etc.)
+- Match tone: Review existing translations for style consistency
+- Technical terms: Research industry-standard terminology
+
+## .xcstrings File Structure
+The file is JSON with this format:
+```json
+{
+  "strings": {
+    "key_name": {
+      "localizations": {
+        "en": {"stringUnit": {"state": "translated", "value": "English"}},
+        "[LANG_CODE]": {"stringUnit": {"state": "translated", "value": "Translation"}}
+      }
+    }
+  }
+}
+```
+
+## Success Criteria
+Run `xcstrings-tool audit` and confirm:
+- Missing translations: 0
+- Completion percentage: 100%
+- All "needs_review" items addressed
+
+## Important Notes
+- Add missing language entries to existing keys
+- Preserve JSON structure exactly
+- Set "state" to "translated" for completed translations
+- Test in-app after major batches to verify context
+```
+
+Replace the placeholders:
+- `[TARGET_LANGUAGE]` - e.g., "Spanish (Mexico)"
+- `[LANG_CODE]` - e.g., "es-MX", "fr", "de"
+- `[YOUR_APP_DESCRIPTION]` - Brief app description for translation context
+
 ## Development
 
 ```bash
