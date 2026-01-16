@@ -1,0 +1,38 @@
+{
+  "sourceLanguage": "en",
+  "version": "1.0",
+  "strings": {
+    "login": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Login"
+          }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "Iniciar Sesión"
+          }
+        }
+      }
+    },
+    "logout": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logout"
+          }
+        },
+        "es-MX": {
+          "stringUnit": {
+            "state": "needs_review",
+            "value": "Cerrar Sesión"
+          }
+        }
+      }
+    }
+  }
+}
