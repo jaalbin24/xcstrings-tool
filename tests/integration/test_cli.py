@@ -3,7 +3,6 @@
 from pathlib import Path
 
 from click.testing import CliRunner
-
 from xcstrings_tool.cli import main
 
 

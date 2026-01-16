@@ -1,6 +1,5 @@
 """Analyzer for localization completeness."""
 
-from typing import List
 
 from xcstrings_tool.core.models import (
     AnalysisResult,
@@ -16,7 +15,7 @@ class Analyzer:
     @staticmethod
     def analyze(
         catalog: StringCatalog,
-        entries: List[StringEntry],
+        entries: list[StringEntry],
         target_language: str,
     ) -> AnalysisResult:
         """Analyze catalog for completeness of target language translations.
@@ -35,9 +34,9 @@ class Analyzer:
         needs_review = 0
         stale = 0
 
-        missing_entries: List[StringEntry] = []
-        needs_review_entries: List[StringEntry] = []
-        stale_entries: List[StringEntry] = []
+        missing_entries: list[StringEntry] = []
+        needs_review_entries: list[StringEntry] = []
+        stale_entries: list[StringEntry] = []
 
         for entry in entries:
             target_loc = entry.localizations.get(target_language)

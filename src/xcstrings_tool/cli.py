@@ -2,7 +2,6 @@
 
 import sys
 from pathlib import Path
-from typing import Tuple
 
 import click
 from rich.console import Console
@@ -11,8 +10,8 @@ from xcstrings_tool import __version__
 from xcstrings_tool.core.analyzer import Analyzer
 from xcstrings_tool.core.parser import Parser, ParserError
 from xcstrings_tool.reporters import (
-    CSVReporter,
     ConsoleReporter,
+    CSVReporter,
     JSONReporter,
     MarkdownReporter,
 )
@@ -73,7 +72,7 @@ def audit(
     catalog_path: Path,
     target_language: str,
     output_dir: Path | None,
-    formats: Tuple[str, ...],
+    formats: tuple[str, ...],
     verbose: bool,
     threshold: int | None,
 ) -> None:
@@ -231,7 +230,7 @@ def stats(catalog_path: Path) -> None:
     try:
         catalog, entries = Parser.parse_file(catalog_path)
 
-        console.print(f"\n[bold]String Catalog Statistics[/bold]")
+        console.print("\n[bold]String Catalog Statistics[/bold]")
         console.print(f"File: [cyan]{catalog_path.name}[/cyan]")
         console.print(f"Source Language: [cyan]{catalog.source_language}[/cyan]")
         console.print(f"Total Strings: [cyan]{len(entries)}[/cyan]")

@@ -3,7 +3,7 @@
 import json
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any, Optional
 
 from xcstrings_tool.core.models import AnalysisResult, StringEntry
 from xcstrings_tool.reporters.base import Reporter
@@ -32,7 +32,7 @@ class JSONReporter(Reporter):
 
         return json_str
 
-    def _build_report(self, result: AnalysisResult) -> Dict[str, Any]:
+    def _build_report(self, result: AnalysisResult) -> dict[str, Any]:
         """Build report dictionary."""
         return {
             "metadata": {
@@ -63,7 +63,7 @@ class JSONReporter(Reporter):
 
     def _entry_to_dict(
         self, entry: StringEntry, result: AnalysisResult
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """Convert string entry to dictionary."""
         source_loc = entry.localizations.get(result.source_language)
         target_loc = entry.localizations.get(result.target_language)

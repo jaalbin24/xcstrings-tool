@@ -1,10 +1,9 @@
 """CSV reporter for translation vendors."""
 
-import csv
 from pathlib import Path
 from typing import Optional
 
-from xcstrings_tool.core.models import AnalysisResult, StringEntry
+from xcstrings_tool.core.models import AnalysisResult
 from xcstrings_tool.reporters.base import Reporter
 
 

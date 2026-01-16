@@ -64,7 +64,7 @@ class ConsoleReporter(Reporter):
         )
 
         with progress:
-            task = progress.add_task(
+            progress.add_task(
                 f"[green]{result.target_language} Translation Progress",
                 total=result.total_strings,
                 completed=result.translated,

@@ -1,7 +1,7 @@
 """Data models for XCStrings catalog structure."""
 
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Optional
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -46,7 +46,7 @@ class StringEntry(BaseModel):
 
     key: str
     extraction_state: Optional[ExtractionState] = Field(None, alias="extractionState")
-    localizations: Dict[str, Localization] = Field(default_factory=dict)
+    localizations: dict[str, Localization] = Field(default_factory=dict)
     comment: Optional[str] = None
 
 
@@ -57,7 +57,7 @@ class StringCatalog(BaseModel):
 
     source_language: str = Field(alias="sourceLanguage")
     version: str = "1.0"
-    strings: Dict[str, Dict[str, Any]]
+    strings: dict[str, dict[str, Any]]
 
 
 class AnalysisResult(BaseModel):
@@ -77,6 +77,6 @@ class AnalysisResult(BaseModel):
     completion_percentage: float
 
     # Details
-    missing_entries: List[StringEntry]
-    needs_review_entries: List[StringEntry]
-    stale_entries: List[StringEntry]
+    missing_entries: list[StringEntry]
+    needs_review_entries: list[StringEntry]
+    stale_entries: list[StringEntry]

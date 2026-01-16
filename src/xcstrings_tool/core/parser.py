@@ -2,7 +2,6 @@
 
 import json
 from pathlib import Path
-from typing import Dict, List
 
 from xcstrings_tool.core.models import (
     ExtractionState,
@@ -22,7 +21,7 @@ class Parser:
     """Parse XCStrings catalog JSON files."""
 
     @staticmethod
-    def parse_file(path: Path) -> tuple[StringCatalog, List[StringEntry]]:
+    def parse_file(path: Path) -> tuple[StringCatalog, list[StringEntry]]:
         """Parse an XCStrings file and return catalog metadata and string entries.
 
         Args:
@@ -41,7 +40,7 @@ class Parser:
             raise ParserError(f"File must have .xcstrings extension: {path}")
 
         try:
-            with open(path, "r", encoding="utf-8") as f:
+            with open(path, encoding="utf-8") as f:
                 data = json.load(f)
         except json.JSONDecodeError as e:
             raise ParserError(f"Invalid JSON: {e}")
@@ -51,7 +50,7 @@ class Parser:
         return Parser._parse_data(data)
 
     @staticmethod
-    def _parse_data(data: Dict) -> tuple[StringCatalog, List[StringEntry]]:
+    def _parse_data(data: dict) -> tuple[StringCatalog, list[StringEntry]]:
         """Parse catalog data dictionary.
 
         Args:
@@ -94,7 +93,7 @@ class Parser:
                     comment=value.get("comment"),
                 )
                 entries.append(entry)
-            except Exception as e:
+            except Exception:
                 # Skip malformed entries but continue parsing
                 continue
 

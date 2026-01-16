@@ -3,7 +3,6 @@
 from pathlib import Path
 
 import pytest
-
 from xcstrings_tool.core.parser import Parser, ParserError
 
 
