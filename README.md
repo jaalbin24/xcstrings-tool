@@ -3,9 +3,9 @@
 Audit and analyze Xcode String Catalogs (`.xcstrings`) for localization completeness.
 
 [![PyPI](https://img.shields.io/pypi/v/xcstrings-tool)](https://pypi.org/project/xcstrings-tool/)
-[![Tests](https://github.com/morganolive/xcstrings-tool/workflows/Test/badge.svg)](https://github.com/morganolive/xcstrings-tool/actions)
+[![Tests](https://github.com/jaalbin24/xcstrings-tool/workflows/Test/badge.svg)](https://github.com/jaalbin24/xcstrings-tool/actions)
 [![Python](https://img.shields.io/pypi/pyversions/xcstrings-tool)](https://pypi.org/project/xcstrings-tool/)
-[![License](https://img.shields.io/pypi/l/xcstrings-tool)](https://github.com/morganolive/xcstrings-tool/blob/main/LICENSE)
+[![License](https://img.shields.io/pypi/l/xcstrings-tool)](https://github.com/jaalbin24/xcstrings-tool/blob/main/LICENSE)
 
 ## The Problem
 
@@ -162,7 +162,7 @@ Generate reports for documentation or GitHub issues.
 
 ```bash
 # Clone repo
-git clone https://github.com/morganolive/xcstrings-tool.git
+git clone https://github.com/jaalbin24/xcstrings-tool.git
 cd xcstrings-tool
 
 # Install with Poetry

@@ -5,8 +5,8 @@ description = "Audit and analyze Xcode String Catalogs (.xcstrings) for localiza
 authors = ["Morgan Olive <morgan.olive@example.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/morganolive/xcstrings-tool"
-repository = "https://github.com/morganolive/xcstrings-tool"
+homepage = "https://github.com/jaalbin24/xcstrings-tool"
+repository = "https://github.com/jaalbin24/xcstrings-tool"
 keywords = ["xcode", "localization", "i18n", "strings", "xcstrings", "ios", "swift"]
 classifiers = [
     "Development Status :: 4 - Beta",

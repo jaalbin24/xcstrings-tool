@@ -52,7 +52,7 @@ class CSVReporter(Reporter):
 
         return csv_str
 
-    def _build_rows(self, result: AnalysisResult) -> list:
+    def _build_rows(self, result: AnalysisResult) -> list[list[str]]:
         """Build CSV rows from result."""
         rows = []
 

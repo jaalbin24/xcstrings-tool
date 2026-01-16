@@ -7,7 +7,7 @@ Thank you for considering contributing to xcstrings-tool!
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/morganolive/xcstrings-tool.git
+git clone https://github.com/jaalbin24/xcstrings-tool.git
 cd xcstrings-tool
 ```
 

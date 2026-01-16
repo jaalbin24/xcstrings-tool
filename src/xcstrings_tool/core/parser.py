@@ -2,6 +2,7 @@
 
 import json
 from pathlib import Path
+from typing import Any
 
 from xcstrings_tool.core.models import (
     ExtractionState,
@@ -50,7 +51,7 @@ class Parser:
         return Parser._parse_data(data)
 
     @staticmethod
-    def _parse_data(data: dict) -> tuple[StringCatalog, list[StringEntry]]:
+    def _parse_data(data: dict[str, Any]) -> tuple[StringCatalog, list[StringEntry]]:
         """Parse catalog data dictionary.
 
         Args:
@@ -88,7 +89,7 @@ class Parser:
 
                 entry = StringEntry(
                     key=key,
-                    extraction_state=extraction_state,
+                    extractionState=extraction_state,
                     localizations=localizations,
                     comment=value.get("comment"),
                 )

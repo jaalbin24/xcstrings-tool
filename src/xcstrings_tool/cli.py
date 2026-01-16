@@ -2,6 +2,7 @@
 
 import sys
 from pathlib import Path
+from typing import Optional
 
 import click
 from rich.console import Console
@@ -71,10 +72,10 @@ def main() -> None:
 def audit(
     catalog_path: Path,
     target_language: str,
-    output_dir: Path | None,
+    output_dir: Optional[Path],
     formats: tuple[str, ...],
     verbose: bool,
-    threshold: int | None,
+    threshold: Optional[int],
 ) -> None:
     """Audit a String Catalog for localization completeness.
 
@@ -99,22 +100,22 @@ def audit(
         # Generate reports
         for fmt in formats:
             if fmt == "console":
-                reporter = ConsoleReporter(verbose=verbose)
-                reporter.generate(result)
+                console_reporter = ConsoleReporter(verbose=verbose)
+                console_reporter.generate(result)
             elif fmt == "json":
-                reporter = JSONReporter()
+                json_reporter = JSONReporter()
                 output_path = out_dir / "localization_report.json"
-                reporter.generate(result, output_path)
+                json_reporter.generate(result, output_path)
                 console.print(f"Generated: [cyan]{output_path}[/cyan]")
             elif fmt == "csv":
-                reporter = CSVReporter()
+                csv_reporter = CSVReporter()
                 output_path = out_dir / "localization_report.csv"
-                reporter.generate(result, output_path)
+                csv_reporter.generate(result, output_path)
                 console.print(f"Generated: [cyan]{output_path}[/cyan]")
             elif fmt == "markdown":
-                reporter = MarkdownReporter()
+                md_reporter = MarkdownReporter()
                 output_path = out_dir / "localization_report.md"
-                reporter.generate(result, output_path)
+                md_reporter.generate(result, output_path)
                 console.print(f"Generated: [cyan]{output_path}[/cyan]")
 
         # Check threshold for CI
@@ -185,7 +186,7 @@ def validate(catalog_path: Path) -> None:
     help="Output CSV file path (default: missing_translations.csv)",
 )
 def export(
-    catalog_path: Path, target_language: str, output_path: Path | None
+    catalog_path: Path, target_language: str, output_path: Optional[Path]
 ) -> None:
     """Export missing translations to CSV for translation vendors.
 
@@ -236,7 +237,7 @@ def stats(catalog_path: Path) -> None:
         console.print(f"Total Strings: [cyan]{len(entries)}[/cyan]")
 
         # Count available languages
-        languages = set()
+        languages: set[str] = set()
         for entry in entries:
             languages.update(entry.localizations.keys())
 
